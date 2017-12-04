@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <style>
+        ul li{
+            list-style: none
+        }
         .active {
             color: greenyellow;
         }
@@ -36,6 +39,7 @@
             flex-wrap: nowrap;
             justify-content: space-between;
         }
+        
     </style>
     <script src="./node_modules/vue/dist/vue.js"></script>
 </head>
@@ -52,6 +56,11 @@
                 <p> {{ noSelectedLen }}  未完成</p>
             </div>
             <div class="panel-body">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation" class="active"><a href="#all">全部列表</a></li>
+                    <li role="presentation"><a href="#done">完成列表</a></li>
+                    <li role="presentation"><a href="#undone">未完成列表</a></li>
+                </ul>
                 <div class="list-group" v-if="lists.length">
                     <li class="list-group-item" v-for="list in lists" :id="list.id">
                         <div v-if="editorTodos != list">
