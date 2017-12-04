@@ -57,12 +57,12 @@
             </div>
             <div class="panel-body">
                 <ul class="nav nav-tabs nav-justified">
-                    <li role="presentation" class="active"><a href="#all">全部列表</a></li>
-                    <li role="presentation"><a href="#done">完成列表</a></li>
-                    <li role="presentation"><a href="#undone">未完成列表</a></li>
+                    <li role="presentation" :class="{active: visibility === 'all'}"><a href="#all">全部列表</a></li>
+                    <li role="presentation" :class="{active: visibility === 'done'}"><a href="#done">完成列表</a></li>
+                    <li role="presentation" :class="{active: visibility === 'undone'}"><a href="#undone">未完成列表</a></li>
                 </ul>
-                <div class="list-group" v-if="lists.length">
-                    <li class="list-group-item" v-for="list in lists" :id="list.id">
+                <div class="list-group" v-if="filterList.length">
+                    <li class="list-group-item" v-for="list in filterList" :id="list.id">
                         <div v-if="editorTodos != list">
                             <!-- 复选框 -->
                             <input type="checkbox" v-model="list.ifget"> 
@@ -88,6 +88,21 @@
     </div>
     <script>
         var index = 0;
+        var filter = {
+            all: function(list){
+                return list;
+            },
+            done: function(list){
+                return list.filter(function(item){
+                    return item.ifget;
+                })
+            },
+            undone: function(list){
+                return list.filter(function(item){
+                    return !item.ifget;
+                })
+            }
+        }
         var store = {
             save(key, value) {
                 window.sessionStorage.setItem(key, JSON.stringify(value))
@@ -103,7 +118,8 @@
                 msg: "hello vue !",
                 lists: lists,
                 todo: '',
-                editorTodos: ''
+                editorTodos: '',
+                visibility: 'all'
             },
             watch: {
                 lists: {
@@ -144,6 +160,9 @@
                     return this.lists.filter(function(item){
                         return !item.ifget
                     }).length
+                },
+                filterList: function(){
+                    return filter[this.visibility](lists) ? filter[this.visibility](lists) : lists;
                 }
             },
             directives: {
@@ -152,11 +171,16 @@
                         if (binding.value) {
                             el.focus();
                         }
-
                     }
                 }
             }
         })
+        function wacthHash() {
+            var hash = window.location.hash.substr(1);
+            vm.visibility = hash;
+        }
+        wacthHash();
+        window.addEventListener('hashchange', wacthHash);
     </script>
 
 </body>
