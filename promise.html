@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+</body>
+<script>
+    function isBigEnough(element) {
+        return element >= 15;
+    }
+
+    console.log([12, 5, 8, 130, 44].find(isBigEnough))
+
+    function runAsync() {
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                console.log('一秒已经到了');
+                resolve('resolve 函数');
+            }, 1000);
+        })
+    }
+    function runAsync1() {
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                console.log('二秒已经到了');
+                var randomNum = Math.round(Math.random()*10);
+                if (randomNum < 5) {
+                    resolve(randomNum);
+                } else {
+                    reject(randomNum+'是大于五的')
+                }
+                
+            }, 1000);
+        })
+    }
+    function runAsync2() {
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                console.log('三秒已经到了');
+                resolve('resolve3 函数');
+            }, 1000);
+        })
+    }
+    runAsync()
+    .then(function(data) {
+        console.log(data);
+        return runAsync1();
+    })
+    .then(function(data) {
+        console.log(data);
+        return runAsync2();
+    })
+    .catch(function(reason){
+        console.log(reason);
+        return runAsync2();
+    })
+    .then(function(data){
+        console.log(data);
+    })
+</script>
+</html>
