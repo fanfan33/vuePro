@@ -20,6 +20,7 @@ new Vue({
     getAddressList: function() {
       var _this = this;
       this.$http.get("data/address.json").then(function(response) {
+        console.log(response);
         var res = response.data;
         if (res.status == "0") {
           _this.addressList = res.result;

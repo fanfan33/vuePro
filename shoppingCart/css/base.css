@@ -272,7 +272,7 @@ body {
 input[type="text"], textarea {
   padding: .5em 20px;
   border: 1px solid #bbb;
-  background: #white; }
+  background: white; }
 
 .up-down-btn {
   color: #EE7A23; }
