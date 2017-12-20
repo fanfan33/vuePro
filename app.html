@@ -177,8 +177,9 @@
         function wacthHash() {
             var hash = window.location.hash.substr(1);
             vm.visibility = hash;
+            console.log('hash = '+hash)
         }
-        wacthHash();
+        // wacthHash();
         window.addEventListener('hashchange', wacthHash);
     </script>
 

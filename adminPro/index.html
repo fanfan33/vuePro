@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录</title>
+		<style type="text/css">
+			
+			.clearfix:after{
+				content: '.';
+				height: 0;
+				display: block;
+				visibility: hidden;
+				clear: both;
+			}
+			html {
+				/*font-size: 10px;*/
+				width: 100%;
+				height: 100%;
+				background: #F7F7F7;
+			}
+			
+			.basic-grey {
+				margin-left: auto;
+				margin-right: auto;
+				max-width: 500px;
+				
+				padding: 25px 15px 25px 10px;
+				font: 12px Georgia, "Times New Roman", Times, serif;
+				color: #888;
+				text-shadow: 1px 1px 1px #FFF;
+				/*border: 1px solid #E4E4E4;*/
+			}
+			
+			.basic-grey h1 {
+				font-size: 25px;
+				padding: 0px 0px 10px 40px;
+				display: block;
+				border-bottom: 1px solid #E4E4E4;
+				margin: -10px -15px 30px -10px;
+				color: #888;
+			}
+			
+			.basic-grey h1>span {
+				display: block;
+				font-size: 11px;
+			}
+			
+			.basic-grey label {
+				display: block;
+				margin: 0px;
+			}
+			.basic-grey label:last-child{
+				text-align: center;
+				margin-top: 20px;
+			}
+			
+			.basic-grey label>span {
+				float: left;
+				width: 20%;
+				text-align: right;
+				padding-right: 10px;
+				margin-top: 10px;
+				color: #888;
+			}
+			
+			.basic-grey input[type="text"],
+			.basic-grey input[type="password"],
+			.basic-grey input[type="number"],
+			.basic-grey textarea,
+			.basic-grey select {
+				border: 1px solid #DADADA;
+				color: #888;
+				height: 30px;
+				margin-bottom: 16px;
+				margin-right: 6px;
+				margin-top: 2px;
+				outline: 0 none;
+				padding: 3px 3px 3px 5px;
+				width: 70%;
+				font-size: 12px;
+				line-height: 15px;
+				box-shadow: inset 0px 1px 4px #ECECEC;
+				-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+				-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+			}
+			.basic-grey input[type="number"]{
+				margin-top: -1px;
+				width: 40%;
+				float: left;
+			}
+			.checkEnter{
+				float: left;
+				width: 28%;
+				margin-top: 2px;
+			}
+			.checkEnter img{
+				width: 100%;
+			}
+			.basic-grey .button {
+				background: none;
+				border: none;
+				padding: 10px 25px 10px 25px;
+				color: #000;
+				box-shadow: 1px 1px 5px #B6B6B6;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<form action="" method="post" class="basic-grey">
+			<h1>Contact Form
+				<span>Please fill all the texts in the fields.</span>
+			</h1>
+			<label>
+				<span>用户名 :</span>
+				<input id="name" type="text" name="name" placeholder="" />
+			</label>
+			<label>
+				<span>密<em style="visibility: hidden;">密</em>码 :</span>
+				<input id="pwd" type="password" name="pwd" placeholder="" />
+			</label>
+			<label class="clearfix">
+				<span>验证码 :</span>
+				<input id="enterCheck" type="number" name="enterCheck" placeholder="" />
+				<div class="checkEnter">
+					<img src="img/code.html"/>
+				</div>
+			</label>
+			<label>
+				<input type="button" class="button" value="登录" />
+			</label>
+		</form>
+	</body>
+
+</html>
