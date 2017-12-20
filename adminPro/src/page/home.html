@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<script src="../js/ejs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			.navbar{
+				margin: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="navnav">
+			
+		</div>
+		<main>
+			<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li><a href="#">Library</a></li>
+			  <li class="active">Data</li>
+			</ol>
+			<div class="mainBtn">
+				
+			</div>
+			<script id="users" type="text/template">  
+		      <% if (names.length) { %>  
+		        <ul>  
+		          <% names.forEach(function(name){ %>  
+		            <li><%= name %></li>  
+		          <% }) %>  
+		        </ul>  
+		      <% } %>  
+		    </script>  
+		</main>
+		
+	</body>
+	<script type="text/javascript">
+		var users = document.getElementById('users').innerHTML;  
+        var names = ['loki', 'tobi', 'jane'];  
+        var html = ejs.render(users, { names: names });  
+        document.getElementsByClassName('mainBtn')[0].innerHTML = html;  
+        
+        
+        $('.navnav').load('nav.html');
+	</script>
+
+</html>
