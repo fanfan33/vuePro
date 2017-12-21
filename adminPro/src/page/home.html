@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
-		<script src="../js/ejs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ejs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 		
@@ -14,6 +14,16 @@
 			.navbar{
 				margin: 0;
 			}
+			.well{
+				margin: 0;
+			}
+			table tr td:first-child{
+				width: 30%;
+			}
+			@media only screen and (min-width: 640px) {
+				
+			}
+			
 		</style>
 	</head>
 
@@ -22,11 +32,51 @@
 			
 		</div>
 		<main>
-			<ol class="breadcrumb">
+			<!--<ol class="breadcrumb">
 			  <li><a href="#">Home</a></li>
 			  <li><a href="#">Library</a></li>
 			  <li class="active">Data</li>
-			</ol>
+			</ol>-->
+			<div class="panel panel-primary">
+				<div class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span>admin</span>欢迎进入管理员系统</div>
+				<div class="table-responsive ">
+				  <table class="table">
+				    <tr >
+				    	<td>登录账号：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr >
+				    	<td>真实姓名：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr >
+				    	<td>登录身份：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr >
+				    	<td>库存数量：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr>
+				    	<td>登录服务器：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr>
+				    	<td>上次登录时间：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr>
+				    	<td>上次登录IP：</td>
+				    	<td>admin</td>
+				    </tr>
+				    <tr>
+				    	<td>登陆次数：</td>
+				    	<td>admin</td>
+				    </tr>
+				  </table>
+				</div>
+			</div>
+			
 			<div class="mainBtn">
 				
 			</div>
@@ -48,8 +98,13 @@
         var html = ejs.render(users, { names: names });  
         document.getElementsByClassName('mainBtn')[0].innerHTML = html;  
         
+        var options={  
+	        url:'/nav.ejs'  
+	    }
         
-        $('.navnav').load('nav.html');
+        var tem = new ejs(options).render();
+        document.getElementsByClassName('navnav')[0].innerHTML = tem;  
+//      $(".navnav").load('nav.ejs')
 	</script>
 
 </html>

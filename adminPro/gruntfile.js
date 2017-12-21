@@ -14,7 +14,7 @@ module.exports = function(grunt) {
             html: ['dist/index.html']
         },
         uglify: {
-            'dist/js/app.min.js': ['assets/js/*.js']
+            'dist/js/app.min.js': ['src/js/*.js']
         },
         copy: {
             html: {
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             }
         },
         cssmin:{
-                'dist/css/app.min.css': ['assets/css/*.css']
+            'dist/css/app.min.css': ['src/css/*.css']
         }
     });
     grunt.loadNpmTasks('grunt-contrib-clean');
