@@ -6,78 +6,163 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/ejs.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vipspa.js" type="text/javascript" charset="utf-8"></script>
 		
 		<style type="text/css">
-			.navbar{
+			html{
+				font-size: 10px;
+			}
+			body{
+				overflow: hidden;
+				background-color: #EFEFEF;
+			}
+			header{
+				width: 100%;
+				height: 35px;
+				line-height: 35px;
+				background-color: #efefef;
+				padding: 0 5%;
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			.navbar, .breadcrumb{
 				margin: 0;
 			}
 			.well{
 				margin: 0;
 			}
-			table tr td:first-child{
+			.nav{
+				width: 15rem;
+				position: absolute;
+				transform: translateX(-15rem);
+				transition: all 0.3s ease-in;
+				
+				
+			}
+			.nav.open{
+				transform: translateX(0rem);
+			}
+			.glyphicon{
+				padding-right: 3px;
+			}
+			ul{
+				padding: 0;
+			}
+			ul>li{
+				list-style: none;
+				text-align: center;
+				line-height: 2em;
+			}
+			.list-group-item{
+				border: 0;
+			}
+			.list-group-item:first-child{
+				border-top: 0;
+				border-radius: 0;
+			}
+			.list-group-item:last-child{
+				border-bottom: 0;
+				border-radius: 0;
+			}
+			ul li ul li{
+				/*height: 0;
+				overflow: hidden;*/
+			}
+			main{
+				width: 100%;
+				position: absolute;
+				transform: translateX(0);
+				transition: all 0.3s ease-in;
+			}
+			main.slide{
+				transform: translateX(17rem);
+			}
+			.first table tr td:first-child{
 				width: 30%;
 			}
+			.getRecord tr th,.getRecord tr td{
+				white-space: nowrap;
+				text-align: center;
+			}
+			.getRecord tr:nth-child(even) {
+				background-color: rgba(239,239,239,0.4);
+			}
 			@media only screen and (min-width: 640px) {
-				
+				header{
+					padding: 0 20px;
+				}
+				header .collapseItem{
+					display: none;
+				}
+				.nav{
+					width: 200px;
+					position: absolute;
+					transform: translateX(0);
+				}
+				main{
+					width: 68%;
+					transform: translateX(220px);
+				}
+				main.slide{
+					transform: translateX(220px);
+				}
 			}
 			
 		</style>
 	</head>
 
 	<body>
-		<div class="navnav">
+		
+		
+		<header>
+			<div class="collapseItem">
+				<span class="glyphicon glyphicon-list" aria-hidden="true" onclick="navShow(this)"></span>
+			</div>
+			
+			<div>
+				姓名（三级代理)
+			</div>
+			
+		</header>
+		<div class="nav" id="nav">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>用户管理
+					<ul>
+						<li><a href="#">赠给玩家</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>查询记录
+					<ul>
+						<li><a href="#sendRecord">赠送记录</a></li>
+						<li><a href="#getRecord">获赠记录</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>统计数据
+					<ul>
+						<li><a href="#">月结报表</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>个人设置
+					<ul>
+						<li><a href="#personalInfo">我的资料</a></li>
+						<li><a href="#pwdChange">修改密码</a></li>
+					</ul>
+				</li>
+			</ul>
 			
 		</div>
 		<main>
-			<!--<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
-			  <li><a href="#">Library</a></li>
-			  <li class="active">Data</li>
-			</ol>-->
-			<div class="panel panel-primary">
-				<div class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span>admin</span>欢迎进入管理员系统</div>
-				<div class="table-responsive ">
-				  <table class="table">
-				    <tr >
-				    	<td>登录账号：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr >
-				    	<td>真实姓名：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr >
-				    	<td>登录身份：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr >
-				    	<td>库存数量：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr>
-				    	<td>登录服务器：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr>
-				    	<td>上次登录时间：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr>
-				    	<td>上次登录IP：</td>
-				    	<td>admin</td>
-				    </tr>
-				    <tr>
-				    	<td>登陆次数：</td>
-				    	<td>admin</td>
-				    </tr>
-				  </table>
-				</div>
-			</div>
+			<div id="ui-view"></div>
 			
-			<div class="mainBtn">
+			<!--<div class="mainBtn">
 				
 			</div>
 			<script id="users" type="text/template">  
@@ -88,23 +173,76 @@
 		          <% }) %>  
 		        </ul>  
 		      <% } %>  
-		    </script>  
+		    </script>  -->
 		</main>
 		
 	</body>
 	<script type="text/javascript">
-		var users = document.getElementById('users').innerHTML;  
-        var names = ['loki', 'tobi', 'jane'];  
-        var html = ejs.render(users, { names: names });  
-        document.getElementsByClassName('mainBtn')[0].innerHTML = html;  
+		var routes = {
+			view: '#ui-view',
+			router: {
+				'first': {
+					templateUrl: 'first.html',
+					controller: ''
+				},
+				'sendRecord': {
+					templateUrl: 'sendRecord.html',
+					controller: ''
+				},
+				'getRecord': {
+					templateUrl: 'getRecord.html',
+					controller: ''
+				},
+				'personalInfo': {
+					templateUrl: 'personalInfo.html',
+					controller: ''
+				},
+				'pwdChange': {
+					templateUrl: 'pwdChange.html',
+					controller: ''
+				},
+				'defaults': 'first' //默认路由
+			},
+			errorTemplateId:'#error'
+		};
+		vipspa.start(routes);
+		
+		
+		
+//		var users = document.getElementById('users').innerHTML;  
+//      var names = ['loki', 'tobi', 'jane'];  
+//      var html = ejs.render(users, { names: names });  
+//      document.getElementsByClassName('mainBtn')[0].innerHTML = html;  
         
-        var options={  
-	        url:'/nav.ejs'  
-	    }
-        
-        var tem = new ejs(options).render();
-        document.getElementsByClassName('navnav')[0].innerHTML = tem;  
-//      $(".navnav").load('nav.ejs')
+//      $(".navnav").load('nav.html')
+
+		var ifShow = false,
+			obj = $('#nav'),
+			main = $('main');
+			
+		
+		
+		function navShow(e) {
+			if (!ifShow) {
+				obj.addClass('open');
+				main.addClass('slide');
+				ifShow = true;
+			} else{
+				closeNav();
+			}
+//			
+//			obj.style.transition = "-webkit-transform 500ms ease-out";
+//			obj.style.webkitTransform = "translate(" + sum + "px, 0px) scale(1) translateZ(0px)";
+		}
+		main.click(function() {
+			closeNav();
+		})
+		
+		function closeNav() {
+			obj.removeClass('open');
+			main.removeClass('slide')
+			ifShow = false;
+		}
 	</script>
 
 </html>
