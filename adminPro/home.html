@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./src/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="src/css/bootstrap-datetimepicker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="dist/css/app.min.css"/>
+		<script src="./src/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/ejs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/vipspa.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+	</head>
+
+	<body>
+		
+		
+		<header>
+			<div class="collapseItem">
+				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" onclick="navShow(this)"></span>
+			</div>
+			
+			<div>
+				姓名（三级代理)
+			</div>
+			
+		</header>
+		<div class="nav" id="nav">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>用户管理
+					<ul>
+						<li><a href="#sendUser">赠给玩家</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-record" aria-hidden="true"></span>查询记录
+					<ul>
+						<li><a href="#sendRecord">赠送记录</a></li>
+						<li><a href="#getRecord">获赠记录</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>统计数据
+					<ul>
+						<li><a href="#">月结报表</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>个人设置
+					<ul>
+						<li><a href="#personalInfo">我的资料</a></li>
+						<li><a href="#pwdChange">修改密码</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<main>
+			<div id="ui-view"></div>
+			
+			<!--<div class="mainBtn">
+				
+			</div>
+			<script id="users" type="text/template">  
+		      <% if (names.length) { %>  
+		        <ul>  
+		          <% names.forEach(function(name){ %>  
+		            <li><%= name %></li>  
+		          <% }) %>  
+		        </ul>  
+		      <% } %>  
+		    </script>  -->
+		</main>
+		<!--模态框-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+			 <div class="modal-dialog modal-sm" role="document">
+			    <div class="modal-content">
+			      	<div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">提示</h4>
+				    </div>
+				    <div class="modal-body">
+				        	用户不存在
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				    </div>
+			    </div>
+			 </div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var routes = {
+			view: '#ui-view',
+			router: {
+				'first': {
+					templateUrl: './src/page/first.html',
+					controller: ''
+				},
+				'sendUser': {
+					templateUrl: './src/page/sendUser.html',
+					controller: ''
+				},
+				'sendRecord': {
+					templateUrl: './src/page/sendRecord.html',
+					controller: './src/js/sendRecord.js'
+				},
+				'getRecord': {
+					templateUrl: './src/page/getRecord.html',
+					controller: ''
+				},
+				'personalInfo': {
+					templateUrl: './src/page/personalInfo.html',
+					controller: ''
+				},
+				'pwdChange': {
+					templateUrl: './src/page/pwdChange.html',
+					controller: ''
+				},
+				'defaults': 'first' //默认路由
+			},
+			errorTemplateId:'#error'
+		};
+		vipspa.start(routes);
+		
+		$(window).on("hashchange", function() {//兼容ie8+和手机端
+            var hash = $('#nav ul li ul li a');
+            hash.css('color','#337ab7');
+            hash.parent().removeClass('bgColor');
+			var localHref = window.location.hash;
+			hash.each(function(i, item) {
+				if ($(item).attr('href') == localHref) {
+					$(this).parent().addClass('bgColor');
+					$(this).css('color','white');
+				}
+			})
+       });
+		
+//		var users = document.getElementById('users').innerHTML;  
+//      var names = ['loki', 'tobi', 'jane'];  
+//      var html = ejs.render(users, { names: names });  
+//      document.getElementsByClassName('mainBtn')[0].innerHTML = html;  
+        
+//      $(".navnav").load('nav.html')
+
+		var ifShow = false,
+			obj = $('#nav'),
+			main = $('main');
+		function navShow(e) {
+			if (!ifShow) {
+				obj.addClass('open');
+				main.addClass('slide');
+				ifShow = true;
+			} else{
+				closeNav();
+			}			
+//			obj.style.transition = "-webkit-transform 500ms ease-out";
+//			obj.style.webkitTransform = "translate(" + sum + "px, 0px) scale(1) translateZ(0px)";
+		}
+		main.click(function() {
+			closeNav();
+		})
+		
+		function closeNav() {
+			obj.removeClass('open');
+			main.removeClass('slide')
+			ifShow = false;
+		}
+	</script>
+
+</html>

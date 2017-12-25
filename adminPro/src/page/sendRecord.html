@@ -7,39 +7,53 @@
 		</ol>
 		<div class="sendList" style="width: 95%;margin: auto;">
 			<div>
-				<form class="form">
+				<form class="form-select">
 				<!--<div class="col-xs-4">-->
 					<select class="form-control" style="width: 30%;display: inline-block;">
-						<option value="">请选择</option>
-						<option value="">我的赠送</option>
+						<option value="" style="display: none;">请选择</option>
+						<option value="1" >我的赠送</option>
 					</select>
 				<!--</div>-->
 				<!--<div class="col-xs-4">-->
-					<select class="form-control" style="width: 30%;display: inline-block;">
-						<option value="">请选择</option>
-						<option value="">玩家</option>
+					<select class="form-control" style="width: 30%;display: none;">
+						<option value="" style="display: none;">请选择</option>
+						<option value="1">玩家</option>
 					</select>
 				<!--</div>-->
-				<div class="form-group">
-				    <label class="sr-only" for="palyerID">Amount (in dollars)</label>
-				    <div class="input-group">
-				      	<input type="text" class="form-control" id="palyerID" placeholder="玩家ID">
-				      	<div class="input-group-addon bg-primary">查询 <span class="glyphicon glyphicon-search"></span></div>
-			    	</div>
-			  	</div>
+					<div class="form-group" style="display: none;">
+					    <label class="sr-only" for="palyerID">Amount (in dollars)</label>
+					    <div class="input-group">
+					      	<input type="text" class="form-control" id="palyerID" placeholder="玩家ID">
+					      	<div class="input-group-addon bg-primary btn-search">查询 <span class="glyphicon glyphicon-search"></span></div>
+				    	</div>
+				  	</div>
 				
 			</form>
 			</div>
-			<div class="list">
-				<ul>
-					<li>sad</li>
-					<li>asdsa</li>
-					<li>asdsa</li>
-					<li>sad</li>
-					<li>wsx</li>
-					<li>xfdas</li>
-					<li>sdfas</li>
-				</ul>
+			<div class="dateSelect">
+				<form class="form-inline" role="form">
+						<div class="form-group">
+			                <label for="dtp_input1" class="col-xs-3 control-label">开始时间</label>
+			                <div class="input-group date form_date_begin1 col-xs-7" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd">
+			                    <input class="form-control" type="text" value="" readonly>
+			                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+			                </div>
+							<input type="hidden" id="dtp_input1" value="" />
+			            </div>
+		    	</form>
+		    	<form class="form-inline"  role="form">
+					<div class="form-group">
+		                <label for="dtp_input2" class="col-xs-3 control-label">截止时间</label>
+		                <div class="input-group date form_date_begin col-xs-7" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+		                    <input class="form-control" type="text" value="" readonly>
+		                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                </div>
+						<input type="hidden" id="dtp_input2" value="" />
+		            </div>
+		    	</form>
+		    	<button class="btn btn-info col-xs-2">筛选</button>
 			</div>
 		</div>
 	</div>
