@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             html: ['dist/home.html']
         },
         uglify: {
-            'dist/js/app.min.js': ['src/js/*.js']
+            'dist/js/*.min.js': ['src/js/*.js','!src/js/*.min.js']
         },
         copy: {
             html: {

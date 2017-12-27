@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="./src/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="src/css/bootstrap-datetimepicker.min.css"/>
 		<link rel="stylesheet" type="text/css" href="dist/css/app.min.css"/>
+		<link rel="stylesheet" href="src/css/loading.css" />
 		<script src="./src/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./src/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
@@ -20,13 +21,19 @@
 
 	<body>
 		
-		
+		<div class="pic">
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+		</div>
 		<header>
 			<div class="collapseItem">
 				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" onclick="navShow(this)"></span>
 			</div>
 			
-			<div>
+			<div class="personItem">
 				姓名（三级代理)
 			</div>
 			
@@ -132,6 +139,7 @@
 		$(window).on("hashchange", function() {//兼容ie8+和手机端
             var hash = $('#nav ul li ul li a');
             hash.css('color','#337ab7');
+            $('.pic').show();
             hash.parent().removeClass('bgColor');
 			var localHref = window.location.hash;
 			hash.each(function(i, item) {

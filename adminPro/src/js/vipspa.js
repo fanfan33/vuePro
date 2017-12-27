@@ -129,6 +129,7 @@
             success: function(data, status, xhr){
                 $(vipspa.mainView).html(data);
                 closeNav();
+                $('.pic').hide();
                 loadScript(routerItem.controller);
             },
             error: function(xhr, errorType, error){

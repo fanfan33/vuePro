@@ -1,20 +1,33 @@
+@trans-color: #efefef;
+@bg-color: #337ab7;
 html{
     font-size: 10px;
 }
 body{
     overflow: hidden;
-    background-color: #EFEFEF;
+    background-color: @trans-color;
 }
+
 header{
     width: 100%;
     height: 35px;
     line-height: 35px;
-    background-color: #efefef;
-    padding: 0 5%;
+    background-color: @trans-color;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    .collapseItem{
+        padding: 0 2%;
+        &:hover{
+            cursor: pointer;
+            background-color: @bg-color;
+            color: @trans-color;
+        }
+    }
+    .personItem{
+        padding: 0 2%;
+    }
 }
 .navbar, .breadcrumb, .well{
     margin: 0;
@@ -74,7 +87,7 @@ ul li ul li{
     overflow: hidden;*/
 }
 .bgColor{
-    background-color: #337ab7;
+    background-color: @bg-color;
 }
 main{
     width: 100%;
