@@ -26,13 +26,13 @@ Package.prototype.basic = function() {
     this.speed = this.randomRange(3000, 5000);
 }
 Package.prototype.bindDom = function() {
-    var lock = this.randomRange(0, 20);
+    var lock = this.randomRange(0, 20); 
     var luckKey = this.luck_key;
     var luck = this.theme();
 
     console.log('lock='+lock+'  luck='+luckKey)
     if (lock == luckKey) {
-        luck = this.theme(3);
+        luck = this.theme(4);
         console.log('%cthis is package', 'color: red');
     }
 
@@ -57,6 +57,7 @@ Package.prototype.bindDom = function() {
     })
 }
 Package.prototype.start = function() {
+	$('audio')[0].play();
     var time = 0;
     var amount = this.count;
     var intervalTime = this.allTime/amount;
@@ -87,13 +88,16 @@ Package.prototype.theme = function(num) {
         case 3:
             return 'pk4';
             break;
+        case 4:
+            return 'obj';
+            break;
     }
 }
 Package.prototype.eases = function() {
     var random = this.randomRange(0, 5);
     switch (random) {
         case 0:
-            return 'easeInQuad';
+            return 'easeOutQuad';
             break;
         case 1:
 			return 'swing';
@@ -102,10 +106,10 @@ Package.prototype.eases = function() {
 			return 'easeInExpo';
 			break;
 		case 3:
-			return 'easeInQuint';
+			return 'linear';
 			break;
 		case 4:
-			return 'easeInOutBounce';
+			return 'easeOutBounce';
 			break;
     }
 }
