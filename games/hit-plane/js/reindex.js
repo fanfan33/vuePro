@@ -3,6 +3,11 @@ var ctx = canMap.getContext('2d');
 var reqAni = '';
 canMap.width = document.documentElement.clientWidth;
 canMap.height = document.documentElement.clientHeight;
+var score = document.getElementById('score').children[0];
+var start = document.getElementById('start');
+var end = document.getElementById('menu');
+var endScore = document.getElementById('end-score');
+var reStart = document.getElementById('restart');
 
 var totalScore = 0;     //记录总分数
 
@@ -33,12 +38,16 @@ function loadMusic() {
         music.onloadedmetadata = function() {
             musicCount ++;
             if (musicCount == musicNames.length) {
-                main();
-                console.log('22222')
-                //音频元数据加载完成执行
+                 //音频元数据加载完成执行
+                background.draw();
                 musicArr[4].loop = true;
-                musicArr[4].volume = 0.2;
+                musicArr[4].volume = 0.5;
                 musicArr[4].play();
+                start.onclick = function() {
+                    this.style.display = 'none';
+                    main();
+                    console.log('22222')
+                }
             }
         }
     }
@@ -161,21 +170,21 @@ var enemyObject = {
         h: 34,
         picLen: 5,
         score: 1,
-        hp: 2
+        hp: 6
     },
     enemy2: {
         w: 46,
         h: 64,
         picLen: 6,
         score: 2,
-        hp: 4
+        hp: 14
     },
     enemy3: {
         w: 110,
         h: 164,
         picLen: 10,
         score: 5,
-        hp: 10
+        hp: 20
     }
 }    
 
@@ -394,7 +403,20 @@ canMap.onmousedown = function(e) {
 canMap.onmouseup = function() {
     canMap.onmousemove = null;
 }
-
+canMap.ontouchstart = function(e) {
+    var x = e.touches[0].clientX;
+    var y = e.touches[0].clientY;
+    if (x >= hero.x && x<= hero.x+hero.w && y>=hero.y && y<=hero.y+hero.h) {
+        canMap.ontouchmove = function(e) {
+            e.preventDefault();
+            hero.x = e.touches[0].clientX - hero.w/2;
+            hero.y = e.touches[0].clientY - hero.h/2;
+        }
+    }
+}
+canMap.ontouchend = function() {
+    canMap.ontouchmove = null;
+}
 
 function main() {
     ctx.clearRect(0,0,canMap.width, canMap.height);
@@ -409,17 +431,21 @@ function main() {
 
     if (! hero.boom) {
         justify();
-        stop1.innerHTML = totalScore;
+        score.innerText = totalScore;
     }
     reqAni = requestAnimationFrame(main);
 }
 
-var stop1 = document.getElementsByClassName('stop')[0];
-stop1.onclick = gameOver;
+
+
 function gameOver(){
     musicArr[4].pause();
     musicArr[5].play();
     cancelAnimationFrame(reqAni);
-    console.log('game over')
-    return;
+    console.log('game over');
+    end.style.display = 'block';
+    endScore.innerText = totalScore;
+}
+reStart.onclick = function() {
+    location.href = location.href + '?stamp='+ new Date().getTime();
 }

@@ -10,35 +10,66 @@
         #map{
             display: block;
         }
-        .stop{
+        #start {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            line-height: 40px;
+            width: 100px;
+            height: 40px;
+            margin: -20px 0 0 -50px ;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #score {
             position: absolute;
             top: 0;
             left: 0;
-            line-height: 35px;
-            width: 100px;
-            height: 35px;
+            margin: 0;
+        }
+        #menu {
+            width: 160px;
+            height: 160px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            list-style-type: none;
             text-align: center;
             border: 1px solid black;
+            border-radius: 5px;
+            background-color: #BBC1C2;
+            font-size: 20px;
+            line-height: 40px;
+            display: none;
+            padding: 0;
+        }
+        #end-score {
+            line-height: 80px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
         }
     </style>
 </head>
 <body>
     <!--游戏地图-->
     <canvas id="map">您的浏览器不支持canvas</canvas>
-    <div class="stop">stop</div>
+    <div id="start">start</div>
     <!--加载-->
     <!-- <div id="loading">
         <img src="img/loading.gif" />
         <p>游戏加载中</p>
     </div> -->
     <!--分数-->
-    <!-- <p id="current-score">分数: <span>0</span></p> -->
+    <p id="score">分数: <span>0</span></p>
     <!--菜单-->
-    <!-- <ul id="menu">
+    <ul id="menu">
         <li>分数</li>
         <li id="end-score">0</li>
         <li id="restart">重新开始</li>
-    </ul> -->
+    </ul>
 </body>
 <script src="./js/reindex.js"></script>
 </html>
