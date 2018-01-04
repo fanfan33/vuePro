@@ -447,5 +447,6 @@ function gameOver(){
     endScore.innerText = totalScore;
 }
 reStart.onclick = function() {
-    location.href = location.href + '?stamp='+ new Date().getTime();
+    location.reload();
+    // location.href = location.href + '?stamp='+ new Date().getTime();
 }
