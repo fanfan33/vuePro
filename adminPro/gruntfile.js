@@ -22,9 +22,9 @@ module.exports = function(grunt) {
       	},
         usemin: {
             html: ['dist/home.html']
-        },
+		},
         uglify: {
-            'dist/js/*.min.js': ['src/js/*.js','!src/js/*.min.js']
+			'dist/js/app.min.js': ['src/js/jquery.min.js', 'src/js/bootstrap.min.js', 'src/js/bootstrap-datetimepicker.min.js', 'src/js/bootstrap-datetimepicker.zh-CN.js', 'src/js/ejs.js', 'src/js/vipspa.js'],
         },
         copy: {
             html: {
@@ -43,26 +43,28 @@ module.exports = function(grunt) {
         	}
         },
         cssmin:{
-            'dist/css/app.min.css': ['src/css/home.css']
-        }
+			'dist/css/app.min.css' :['src/css/bootstrap.min.css', 'src/css/bootstrap-datetimepicker.min.css', 'src/css/home.css', 'src/css/loading.css']
+		}
     });
-//  grunt.loadNpmTasks('grunt-contrib-clean');
-//  grunt.loadNpmTasks('grunt-contrib-copy');
-//  grunt.loadNpmTasks('grunt-contrib-uglify');
-//  grunt.loadNpmTasks('grunt-contrib-concat');
+ 	grunt.loadNpmTasks('grunt-contrib-clean');
+ 	grunt.loadNpmTasks('grunt-contrib-copy');
+ 	grunt.loadNpmTasks('grunt-contrib-uglify');
+ 	grunt.loadNpmTasks('grunt-contrib-concat');
 //  
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-//  grunt.loadNpmTasks('grunt-usemin');
+ 	grunt.loadNpmTasks('grunt-usemin');
     
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
-//  grunt.registerTask('default',[
-//      'clean',
-//      'copy:html',
-//      'useminPrepare',
-//      'uglify',
-//      'cssmin',
-//      'usemin'
-//  ]);
+ 	grunt.registerTask('default',[
+     'clean',
+     'copy:html',
+     'useminPrepare',
+	 'uglify',
+	 'less',
+	 'cssmin',
+	 'usemin',
+	 
+ ]);
 //	grunt.registerTask('watch', ['watch'])
 }
