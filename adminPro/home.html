@@ -8,39 +8,31 @@
 		<!-- build:css css/app.min.css -->
 		<link rel="stylesheet" type="text/css" href="./src/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="src/css/bootstrap-datetimepicker.min.css"/>
-		<link rel="stylesheet" type="text/css" href="src/css/home.css"/>
+		<link rel="stylesheet" type="text/css" href="src/css/home.min.css"/>
 		<link rel="stylesheet" href="src/css/loading.css" />
 		<!-- endbuild -->
 
 		<!-- build:js js/app.min.js -->
-		<script src="./src/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./src/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./src/js/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./src/js/ejs.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./src/js/vipspa.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/utils/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/utils/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/utils/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/utils/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/js/utils/vue.js"></script>
+		<script src="./src/js/utils/vue-resource.js"></script>
+		<script src="./src/js/utils/vipspa.js" type="text/javascript" charset="utf-8"></script>
 		<!-- endbuild -->  
 		
 	</head>
-
 	<body>
-		
-		<div class="pic">
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-		</div>
+		<!-- css3进度条 -->
+		<div class="pic"><i></i><i></i><i></i><i></i><i></i></div>
 		<header>
 			<div class="collapseItem">
 				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" onclick="navShow(this)"></span>
 			</div>
-			
 			<div class="personItem">
 				姓名（三级代理)
 			</div>
-			
 		</header>
 		<div class="nav" id="nav">
 			<ul class="list-group">
@@ -74,19 +66,6 @@
 		</div>
 		<main>
 			<div id="ui-view"></div>
-			
-			<!--<div class="mainBtn">
-				
-			</div>
-			<script id="users" type="text/template">  
-		      <% if (names.length) { %>  
-		        <ul>  
-		          <% names.forEach(function(name){ %>  
-		            <li><%= name %></li>  
-		          <% }) %>  
-		        </ul>  
-		      <% } %>  
-		    </script>  -->
 		</main>
 		<!--模态框-->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -112,11 +91,11 @@
 			router: {
 				'first': {
 					templateUrl: './src/page/first.html',
-					controller: ''
+					controller: './src/js/pages/first.js'
 				},
 				'sendUser': {
 					templateUrl: './src/page/sendUser.html',
-					controller: ''
+					controller: './src/js/pages/sendUser.js'
 				},
 				'sendRecord': {
 					templateUrl: './src/page/sendRecord.html',
@@ -124,7 +103,7 @@
 				},
 				'getRecord': {
 					templateUrl: './src/page/getRecord.html',
-					controller: ''
+					controller: './src/js/pages/getRecord.js'
 				},
 				'personalInfo': {
 					templateUrl: './src/page/personalInfo.html',

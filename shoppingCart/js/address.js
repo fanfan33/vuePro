@@ -1,7 +1,7 @@
 new Vue({
   el: '.container',
   data: {
-    limitNum: 3,
+    limitNum: 1,
     addressList: [],
     currentIndex: 0,
     shippingMethod: 1
@@ -28,7 +28,7 @@ new Vue({
       });
     },
     loadMore: function() {
-      this.limitNum = this.addressList.length;
+      this.limitNum ++;
     },
     setDefault: function(addressId) {
       this.addressList.forEach(function (address, index) {

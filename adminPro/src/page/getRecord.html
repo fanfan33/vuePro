@@ -1,4 +1,4 @@
-<div class="getRecord">
+<div class="getRecord" id="getRecord">
 	<div class="panel panel-default">
 		<ol class="breadcrumb">
 		  	<li><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <a href="#first">Home</a></li>
@@ -9,17 +9,21 @@
 			<span class="glyphicon glyphicon-record"></span> 我的获赠记录
 		</div>
 		<div class="info-list" style="overflow: auto;">
-			<table class="table table-bordered table-hover" >
+			<table class="table table-bordered table-hover" v-if="items.length>0">
 				<tr>
 					<th>赠送ID</th><th>赠送账户</th><th>数量</th><th>备注</th><th>状态</th><th>时间</th><th>单号</th>
 				</tr>
-				<tr>
-					<td>123456</td><td>adminadminsdkjsahfdljas</td><td>1000</td><td>lalla</td><td>成功</td><td>2017-12-22</td><td>201712221716</td>
-				</tr>
-				<tr>
-					<td>123456</td><td>admin</td><td>1000</td><td>lalla</td><td>成功</td><td>2017-12-22</td><td>201712221716</td>
+				<tr v-for="item in items">
+					<td>{{item.id}}</td>
+					<td>{{item.nick}}</td>
+					<td>{{item.num}}</td>
+					<td>{{item.info}}</td>
+					<td>{{item.state}}</td>
+					<td>{{item.data | dateNormal}}</td>
+					<td>{{item.listNum}}</td>
 				</tr>
 			</table>
+			<p style="text-align:center;" v-else>暂无数据</p>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,20 @@
+{
+    "result":[
+        {"id": 123456,
+        "nick": "hello",
+        "num": 1000,
+        "info": "nothing",
+        "state": "success",
+        "data": 1515565303445,
+        "listNum": 201712221716
+        },
+        {"id": 654321,
+        "nick": "nick",
+        "num": 1000,
+        "info": "dasdsad",
+        "state": "success",
+        "data": 1515565303445,
+        "listNum": 201712221716
+        }
+    ]
+}

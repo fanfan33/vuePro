@@ -42,8 +42,11 @@ module.exports = function(grunt) {
         		}
         	}
         },
-        cssmin:{
-			'dist/css/app.min.css' :['src/css/bootstrap.min.css', 'src/css/bootstrap-datetimepicker.min.css', 'src/css/home.css', 'src/css/loading.css']
+        // cssmin:{
+		// 	'dist/css/app.min.css' :['src/css/bootstrap.min.css', 'src/css/bootstrap-datetimepicker.min.css', 'src/css/home.css', 'src/css/loading.css']
+		// }
+		cssmin: {
+			'src/css/home.min.css': 'src/css/home.css'
 		}
     });
  	grunt.loadNpmTasks('grunt-contrib-clean');
@@ -56,7 +59,7 @@ module.exports = function(grunt) {
     
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
- 	grunt.registerTask('default',[
+ 	grunt.registerTask('usemin',[
      'clean',
      'copy:html',
      'useminPrepare',
