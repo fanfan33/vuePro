@@ -1,0 +1,38 @@
+moment.js不依赖任何第三方库，支持字符串、Date、时间戳以及数组等格式，可以像PHP的date()函数一样，格式化日期时间，计算相对时间，获取特定时间后的日期时间等等。
+
+格式化日期
+moment().format('MMMM Do YYYY, h:mm:ss a'); // March 20th 2017, 11:52:12 am
+moment().format('dddd');                    // Monday
+moment().format("MMM Do YY");               // Mar 20th 17
+moment().format('YYYY [escaped] YYYY');     // 2017 escaped 2017
+moment().format();                          // 2017-03-20T11:52:12+08:00
+
+相对时间
+moment("20111031", "YYYYMMDD").fromNow(); // 5 years ago
+moment("20120620", "YYYYMMDD").fromNow(); // 5 years ago
+moment().startOf('day').fromNow();        // 12 hours ago
+moment().endOf('day').fromNow();          // in 12 hours
+moment().startOf('hour').fromNow();       // an hour ago
+
+日历时间
+moment().subtract(10, 'days').calendar(); // 03/10/2017
+moment().subtract(6, 'days').calendar();  // Last Tuesday at 11:54 AM
+moment().subtract(3, 'days').calendar();  // Last Friday at 11:54 AM
+moment().subtract(1, 'days').calendar();  // Yesterday at 11:54 AM
+moment().calendar();                      // Today at 11:54 AM
+moment().add(1, 'days').calendar();       // Tomorrow at 11:54 AM
+moment().add(3, 'days').calendar();       // Thursday at 11:54 AM
+moment().add(10, 'days').calendar();      // 03/30/2017
+
+多样化的本地时间支持
+moment.locale();         // zh-cn
+moment().format('LT');   // 11:55
+moment().format('LTS');  // 11:55:16
+moment().format('L');    // 2017年3月20日
+moment().format('l');    // 2017年3月20日
+moment().format('LL');   // 2017年3月20日
+moment().format('ll');   // 2017年3月20日
+moment().format('LLL');  // 2017年3月20日中午11点55分
+moment().format('lll');  // 2017年3月20日 11:55
+moment().format('LLLL'); // 2017年3月20日星期一中午11点55分
+moment().format('llll'); // 2017年3月20日星期一 11:55

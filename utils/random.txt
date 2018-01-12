@@ -1,0 +1,5 @@
+--6位验证码 ---Math.random().toString().slice(-6);
+--16进制颜色代码生成
+(function(){
+	return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+})()

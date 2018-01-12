@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quick Start Template</title>
+	  <!-- AniCollection.css library -->
+    <link rel="stylesheet" href="https://anijs.github.io/lib/anicollection/anicollection.css">
+    <style type="text/css">
+    	header{
+    		width: 500px;
+    		margin: auto;
+    		height: 300px;
+    		border: 1px solid #000;
+    	}
+    	#main{
+    		width: 500px;
+    		margin: auto;
+    		height: 300px;
+    		border: 1px solid #000;
+    	}
+    	footer{
+    		width: 500px;
+    		margin: auto;
+    		height: 300px;
+    		border: 1px solid #000;
+    	}
+    </style>
+</head>
+<body>
+    <!--Simple sentence-->
+    <header data-anijs="if: click, do: flipInY animated">
+        header (Click here)
+    </header>
+    <div id="main" data-anijs="if: mouseover, do: swing animated">
+        Main (MouseOver)
+    </div>
+    <footer data-anijs="if:click, do: hinge animated">
+        footer (Click here)
+    </footer>
+  <!-- AniJS core library -->
+  <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script> 
+  
+  <!-- Include to use $addClass, $toggleClass or $removeClass -->
+  <script src="https://anijs.github.io/lib/anijs/helpers/dom/anijs-helper-dom-min.js"></script>
+
+  <!-- The scrollreveal helper
+  <script src="https://anijs.github.io/lib/anijs/helpers/scrollreveal/anijs-helper-scrollreveal-min.js"></script>-->
+  </body>
+</html>

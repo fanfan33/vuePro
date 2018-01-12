@@ -1,0 +1,60 @@
+<style type="text/css">
+		.pic i{
+			display: block;
+			width: 10px;
+			height: 40px;
+			float: left;
+			margin: 0 2px;
+			background-color: lightgreen;
+			-webkit-transform: scaleY(0.4);
+			    -ms-transform: scaleY(0.4);
+			        transform: scaleY(0.4);
+			-webkit-animation: animate 1.2s infinite;
+			        animation: animate 1.2s infinite;
+		}
+		@-webkit-keyframes animate{
+			0%,40%,100%{
+				-webkit-transform: scaleY(0.4);
+				        transform: scaleY(0.4);
+			}
+			20%{
+				-webkit-transform: scaleY(1);
+				        transform: scaleY(1);
+			}
+		}
+		@keyframes animate{
+			0%,40%,100%{
+				-webkit-transform: scaleY(0.4);
+				        transform: scaleY(0.4);
+			}
+			20%{
+				-webkit-transform: scaleY(1);
+				        transform: scaleY(1);
+			}
+		}
+		.pic i:nth-child(2){
+			-webkit-animation-delay: 0.1s;
+			        animation-delay: 0.1s;
+		}
+		.pic i:nth-child(3){
+			-webkit-animation-delay: 0.2s;
+			        animation-delay: 0.2s;
+		}
+		.pic i:nth-child(4){
+			-webkit-animation-delay: 0.3s;
+			        animation-delay: 0.3s;
+		}
+		.pic i:nth-child(5){
+			-webkit-animation-delay: 0.4s;
+			        animation-delay: 0.4s;
+		}
+	</style>
+	<body>
+		<div class="pic">
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+		</div>
+	</body>
