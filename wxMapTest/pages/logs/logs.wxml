@@ -1,0 +1,36 @@
+<!--logs.wxml-->
+<view class="topThree">
+  <view class="second">
+    <view class="imgCon">
+      <image src="{{infoArr[1].advUrl}}"></image>
+    </view>
+    <view>{{infoArr[1].name}}</view>
+    <view>{{infoArr[1].step}}</view>
+  </view>
+  <view class="first">
+    <view class="imgCon imgFirst">
+      <image src="{{infoArr[0].advUrl}}"></image>
+    </view>
+    <view>{{infoArr[0].name}}</view>
+    <view>{{infoArr[0].step}}</view>
+  </view>
+  <view class="third">
+    <view class="imgCon imgThird">
+      <image src="{{infoArr[2].advUrl}}"></image>
+    </view>
+    <view>{{infoArr[2].name}}</view>
+    <view>{{infoArr[2].step}}</view>
+  </view>
+</view>
+<view class="topList">
+  <view wx:for="{{infoArr}}" wx:for-index="idx" wx:if="{{idx>2}}" class="lastList">
+    <view class="infoLeft">{{idx+1}}</view>
+    <view class="infoCenter"><image src="{{item.advUrl}}"></image> {{item.name}}</view>
+    <view class="infoRight">{{item.step}}</view>
+  </view>
+</view>
+<view class=" log-list">
+  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
+    <text class="log-item">{{index + 1}}. {{log}}</text>
+  </block>
+</view>

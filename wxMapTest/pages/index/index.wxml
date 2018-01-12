@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+   <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto" bindtap="goForm">{{motto}}</text>
+  </view> 
+  <view class="tele" bindtap="callme">15732633712</view>
+  <button type="primary" bindtap="showmap">获取位置</button>
+
+
+  <!-- <map id="myMap" show-location />
+
+  <button type="primary" bindtap="huoquweizhi">获取位置</button>
+  <button type="primary" bindtap="yidong">移动位置</button>
+  <button type="primary" bindtap="translateMarker">移动标注</button>
+  <button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button> -->
+
+  <!-- <view class="">纬度：{{latitude}}</view>
+  <view class="">经度：{{longitude}}</view>
+  <view class="">速度 ：{{speed}}</view>
+  <view class="">海拔高度：{{altitude}}</view> -->
+</view>
