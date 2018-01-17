@@ -22,6 +22,7 @@ export default {
       searchKeyword: 'taylor'
     }
   },
+  //当组件在keep-alive内切换，activated和deactivated两个生命周期钩子函数将会被对应执行
   activated() {
     document.title = '网易云音乐MV'
   }
