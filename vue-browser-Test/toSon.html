@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>双向流</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="./node_modules/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="toSon" class="container">
+            <h3>{{ count }}</h3>
+            <child-tem :count="count" v-on:father="increamNum"></child-tem>
+            
+        </div>
+        
+        <script>
+            
+            Vue.component('child-tem', {
+                props: ['count'],
+                template: `<div>
+                    <h3>hello 双向数据流</h3>
+                    <span>{{ computCount }}</span><button @click="addFun">添加</button>
+                </div>`,
+                data() {
+                    return {propCount: this.count}
+                },
+                computed: {
+                    computCount(){
+                        return this.propCount;
+                    }
+                },
+                methods: {
+                    addFun() {
+                        this.propCount ++;
+                        this.$emit("father")
+                    }
+                }
+            })
+            new Vue({
+                el: '#toSon',
+                data: {
+                    count: 0
+                },
+                methods: {
+                    increamNum() {
+                        console.log('0000000000');
+                        this.count ++
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

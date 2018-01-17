@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+        <div class="container" id="example-2">
+            <h3>{{counter}}</h3>
+            <simple-counter a-value="增加" add-value='1' btn-value="查询" :list="listTxt" ></simple-counter>
+        </div>
+        <div class="container" id="example-3">
+            <h3>{{counter1}}</h3>
+            <simple-counter a-value="减少" add-value='-1' btn-value="提交" :list="listCate"></simple-counter>
+        </div>
+</body>
+<script>
+   var data = { counter: 0 }
+   Vue.component('simpleCounter', {
+     template: `
+        <div>
+            <span>{{ counter }}</span>
+            <button v-on:click="counter += Number(addValue)">{{ aValue }}</button>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="search" :value="val" @click="ifShow = !ifShow">
+                </div>
+                <button type="submit" class="btn btn-default">{{ btnValue }}</button>
+                <custom-list v-show="ifShow" :list="list" v-on:recieveFromChild="recieve" ></custom-list>
+            </form>
+        </div>
+     `,
+     props: ['aValue','addValue', 'btnValue', 'list'],
+     data: function () {
+       return {
+           counter: 0,
+           ifShow: false,
+           val: ''
+       }
+     },
+     methods: {
+         recieve(value) {
+            this.val = value
+            this.ifShow = !this.ifShow
+         }
+     }
+   })
+   Vue.component('custom-list', {
+       template: `
+            <div class="list-group">
+                <button class="list-group-item" v-for="item in list" @click.prevent="addCon(item)" >{{ item }}</button>
+            </div>
+       `,
+       props: ['list'],
+       methods: {
+           addCon: function(item){
+             this.$emit("recieveFromChild", item)
+           }
+       }
+   })
+   new Vue({
+       el: '#example-2',
+       data: {
+           counter: 'first component',
+           listTxt: ['Tamas Wells','Alternative for Baroque','Mirror','放肆的肆', 'nara'],
+       }
+   })
+   new Vue({
+       el: '#example-3',
+       data: {
+            counter1: 'seconed component',
+            listCate: ['民谣', '轻音乐', '摇滚', '流行']
+       }
+   })
+</script>
+</html>
