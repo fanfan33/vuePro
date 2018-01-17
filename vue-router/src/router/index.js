@@ -17,18 +17,18 @@ export default new Router({
       name: 'HelloWorld',
       component: HelloWorld,
       children: [{
-          path: 'phone',
-          component: Phone
-        },{
-          path: 'computer',
-          component: Computer
-        },{
-          path: 'tv',
-          component: Tv
-        },{
-          path: '/',
-          component: Phone
-        }]
+        path: 'phone',
+        component: Phone
+      },{
+        path: 'computer',
+        component: Computer
+      },{
+        path: 'tv',
+        component: Tv
+      },{
+        path: '',
+        component: Phone
+      }]
     },
     {
       path: '/about',

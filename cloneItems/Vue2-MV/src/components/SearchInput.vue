@@ -21,7 +21,6 @@ export default {
       this.$root.$emit('change-skey',this.searchKeyword)
     },
     hideKeyboard: function(ev){
-      console.log(ev);
       ev.target.blur();
     }
   }

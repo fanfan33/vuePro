@@ -8,7 +8,7 @@ import * as filters from './util/filters'
 import axios from 'axios'
 
 Vue.prototype.$http = axios
-console.log(filters);
+
 // register global utility filters.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
