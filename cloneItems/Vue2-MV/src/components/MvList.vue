@@ -41,6 +41,7 @@ export default {
     })
 
     this.$root.$options.router.afterEach(route => {//通过router的变化，设置组件的infinite-scroll-disabled
+      console.log(route);
       if(route.name == 'index'){
         this.busy = false
       }else {
