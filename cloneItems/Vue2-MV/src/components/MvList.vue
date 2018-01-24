@@ -32,6 +32,7 @@ export default {
     }
   },
   beforeMount(){
+    console.log(this);
     this.$root.$on('change-skey', val => {
       this.sKey = val
       console.log('---'+this.sKey)
