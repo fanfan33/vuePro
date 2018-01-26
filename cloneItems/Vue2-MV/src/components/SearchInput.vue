@@ -16,6 +16,9 @@ export default {
       searchKeyword: ''
     }
   },
+  mounted() {
+    console.log(this);
+  },
   methods: {
     submit: function(){
       this.$root.$emit('change-skey',this.searchKeyword)

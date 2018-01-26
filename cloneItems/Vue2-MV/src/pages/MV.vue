@@ -1,17 +1,19 @@
 <template>
-  <div class="mv">
-    <video-player :video-poster="this.$route.params.poster?this.$route.params.poster:video.poster" :video-source="video.source" :video-type="video.type"></video-player>
-    <div class="player-detail">
-      <h3>{{ this.$route.params.mvName?this.$route.params.mvName:mvDetail.name }}</h3>
-      <div class="pd-s1">
-        <a href="javascript:;" class="pull-left">歌手：{{ mvDetail.artistName }}</a>
-        <span class="pull-right">播放：{{ mvDetail.playCount | numberConversion }}</span>
+  <transition name="router-slide" mode="out-in">
+    <div class="mv">
+      <video-player :video-poster="this.$route.params.poster?this.$route.params.poster:video.poster" :video-source="video.source" :video-type="video.type"></video-player>
+      <div class="player-detail">
+        <h3>{{ this.$route.params.mvName?this.$route.params.mvName:mvDetail.name }}</h3>
+        <div class="pd-s1">
+          <a href="javascript:;" class="pull-left">歌手：{{ mvDetail.artistName }}</a>
+          <span class="pull-right">播放：{{ mvDetail.playCount | numberConversion }}</span>
+        </div>
+        <p class="pd-time">发行：{{ mvDetail.publishTime }}</p>
+        <p class="pd-intro">{{ mvDetail.desc }}</p>
       </div>
-      <p class="pd-time">发行：{{ mvDetail.publishTime }}</p>
-      <p class="pd-intro">{{ mvDetail.desc }}</p>
+      <comments :mid="this.$route.params.id"></comments>
     </div>
-    <comments :mid="this.$route.params.id"></comments>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -85,7 +87,13 @@ export default {
 .mv {
   padding-top: 5.5rem;
 }
-
+.router-slide-enter-active, .router-slide-leave-active {
+    transition: all .2s ease;
+}
+.router-slide-enter {
+    transform: translate3d(1rem, 0, 0);
+    opacity: .9;
+}
 .player-detail {
   margin: 0 2%;
   padding: .4rem 0;
