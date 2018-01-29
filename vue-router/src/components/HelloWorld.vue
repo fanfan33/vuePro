@@ -8,7 +8,9 @@
       <router-link to="/home/computer">电脑</router-link>
       <router-link to="/home/tv">电视</router-link>
     </p>
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+       <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -30,6 +32,7 @@ export default {
 }
 h1, h2 {
   font-weight: normal;
+  padding: 1.0rem 0;
 }
 ul {
   list-style-type: none;
@@ -41,5 +44,11 @@ li {
 }
 a {
   color: #42b983;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #cccccc;
+}
+.router-link-active{
+  color: aquamarine;
 }
 </style>

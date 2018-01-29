@@ -1,8 +1,8 @@
 <template>
-  <h3>手机页</h3>
+    <h2>phone</h2>
 </template>
 <script>
-    export default {
-        
-    }
+export default {
+  
+}
 </script>

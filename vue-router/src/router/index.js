@@ -6,6 +6,7 @@ import Users from '@/components/Users'
 
 import Computer from '@/components/Computer'
 import Phone from '@/components/Phone'
+import PhoneDialog from "@/components/PhoneDialog";
 import Tv from '@/components/Tv'
 
 Vue.use(Router)
@@ -18,7 +19,7 @@ export default new Router({
       component: HelloWorld,
       children: [{
         path: 'phone',
-        component: Phone
+        component: PhoneDialog
       },{
         path: 'computer',
         component: Computer
