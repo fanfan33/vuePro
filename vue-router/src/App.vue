@@ -38,7 +38,7 @@ export default {
     height: 100%;
     background-color: #efefef;
   }
-  body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  /* body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -49,7 +49,7 @@ export default {
     font-weight: normal;
     font-family: "Microsoft Yahei";
     box-sizing: border-box;
-  }
+  } */
 </style>
 
 <style scoped>

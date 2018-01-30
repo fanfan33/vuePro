@@ -4,9 +4,9 @@
     <h2>Essential Links</h2>
     <h2>Ecosystem</h2>
     <p>
-      <router-link to="/home/phone">手机</router-link>
-      <router-link to="/home/computer">电脑</router-link>
-      <router-link to="/home/tv">电视</router-link>
+      <router-link class="weui-btn  weui-btn_mini" to="/home/phone">手机</router-link>
+      <router-link class="weui-btn  weui-btn_mini" to="/home/computer">电脑</router-link>
+      <router-link class="weui-btn  weui-btn_mini" to="/home/tv">电视</router-link>
     </p>
     <transition name="fade" mode="out-in">
        <router-view></router-view>
@@ -42,13 +42,11 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: #cccccc;
+.weui-btn{
+  color: black;
 }
 .router-link-active{
-  color: aquamarine;
+  background-color: #1aad19;
+  color: #ffffff;
 }
 </style>

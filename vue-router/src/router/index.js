@@ -28,7 +28,7 @@ export default new Router({
         component: Tv
       },{
         path: '',
-        component: Phone
+        component: PhoneDialog
       }]
     },
     {
