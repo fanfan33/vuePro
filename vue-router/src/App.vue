@@ -52,7 +52,7 @@ export default {
   } */
 </style>
 
-<style scoped>
+<style scoped lang="scss">
  
   #app {
     -webkit-font-smoothing: antialiased;
@@ -63,26 +63,32 @@ export default {
     
   }
   .router{
-    position: fixed;
-    bottom: 0.5rem;
+    position: absolute;
+    bottom: 0;
     left: 0;
-    display: flex;
+    width: 100%;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around; */
   }
   a{
-    font-size: 1.6rem;
     display: inline-block;
-    border: 1px solid #000;
+    width: 32%;
+    /* border: 1px solid #000; */
     color: black;
     border-radius: 5px;
-    padding: 2px 5px;
+    /* padding: 2px 5px; */
   }
   a.router-link-active{
     color: red;
   }
   figure img{
-    height: 2.5rem;
+    height: 2.2rem;
+    margin: 0;
+  }
+  figcaption {
+    margin:0;
+    /* height: 1.0rem; */
   }
   .slide-fade-enter-active {
     transition: all .8s ease;

@@ -4,6 +4,12 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+var env = process.env.NODE_ENV
+var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
+var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
+var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -27,13 +33,11 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath: config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
+    extensions: ['.js', '.vue', '.json', '.scss'],  //自动解析确定的拓展名,使导入模块时不带拓展名
+    alias: {                                        // 创建import或require的别名
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
@@ -54,8 +58,8 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          limit: 10000,       //小于limit字节数，用base64处理
+          name: utils.assetsPath('img/[name].[hash:7].[ext]')   //名字加上7位hash值
         }
       },
       {
@@ -76,6 +80,14 @@ module.exports = {
       }
     ]
   },
+  // vue: {
+  //   loaders: utils.cssLoaders({sourceMap: useCssSourceMap}),
+  //   postcss: [
+  //     require('autoprefixer')({
+  //       browsers: ['> 5%']
+  //     })
+  //   ]
+  // },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+var util = require('util');
 Vue.use(Router)
 
 import Index from '../pages/Index'
@@ -12,6 +12,7 @@ export default new Router({
   //mode: 'history',
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
+      console.log(util.format(savedPosition)+"   path="+util.format(to));
       return savedPosition
     } else {
       return { x: 0, y: 0 }
